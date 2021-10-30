@@ -7,6 +7,11 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+/**
+ * Clase Area para representar la tabla de la Base de datos
+ * @author: Julián Andrés Cortés García
+ * @version: 29/10/2021
+ */
 @Data
 @Entity
 @Table(name="area")

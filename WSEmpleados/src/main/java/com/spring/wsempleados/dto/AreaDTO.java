@@ -1,5 +1,10 @@
 package com.spring.wsempleados.dto;
 
+/**
+ * Clase DTO para manipulación de la entidad Area
+ * @author: Julián Andrés Cortés García
+ * @version: 29/10/2021
+ */
 public class AreaDTO {
 	
 	private long idArea;

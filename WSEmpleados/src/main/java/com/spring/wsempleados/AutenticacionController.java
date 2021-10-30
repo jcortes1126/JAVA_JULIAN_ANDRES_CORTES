@@ -17,28 +17,40 @@ import com.spring.wsempleados.respuesta.UsuarioToken;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
-
+/**
+ * Esta clase es responsable de controlar las solicitud del token del API REST entrante, preparar un modelo y devolver la vista que se muestra como respuesta
+ * @author: Julián Andrés Cortés García
+ * @version: 29/10/2021
+ */
 @CrossOrigin("*")
 @RestController
 @RequestMapping("login")
 public class AutenticacionController {
 
+	/**
+     * Función autenticar responsable de asignar un token JWT al usuario ingresado, para ser usado en las peticiones a las demas funciones del servicio REST 
+     * @param nombreUsuario
+     * @param clave
+     * @return UsuarioToken
+     */
 	@PostMapping("usuario")
 	private UsuarioToken autenticar(@RequestParam("usuario") String nombreUsuario, @RequestParam("clave") String clave) {
 		
 		String token = getJWTToken(nombreUsuario);
 		UsuarioToken usuarioToken= new UsuarioToken();
-		
-		
+				
 		usuarioToken.setNombreUsuario(nombreUsuario);
 		usuarioToken.setToken(token);
-		
-		
+				
 		return usuarioToken;
 		
 	}
 	
-	
+	/**
+     * Función getJWTToken construye el token JWT que debe retornar el método autenticar. 
+     * @param username
+     * @return String
+     */
 	private String getJWTToken(String username) {
 		String secretKey = "mySecretKey";
 		List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER");
