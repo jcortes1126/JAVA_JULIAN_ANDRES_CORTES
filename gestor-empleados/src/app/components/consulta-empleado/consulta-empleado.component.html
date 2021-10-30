@@ -1,0 +1,35 @@
+<div>
+  <p>
+    <label>Numero de Documento:</label>
+    <input type="text" [(ngModel)]="documento"/>
+  </p>
+  <p>
+    <label>Nombres:</label>
+    <input type="text" [(ngModel)]="nombres"/>
+  </p>
+  <button (click)="consultar()">Consultar</button>
+
+  <h1>Resultado de la Busqueda</h1>
+  <div [style.visibility]="empleados.length ===0 ? 'hidden' : 'visible'" >
+    <table class="table">
+      <thead>
+          <tr>
+              <th [ngStyle]="{ 'width': '100px' }">Tipo Documento</th>
+              <th [ngStyle]="{ 'width': '150px' }">Numero Documento</th>
+              <th [ngStyle]="{ 'width': '150px' }">Nombres</th>
+              <th [ngStyle]="{ 'width': '150px' }">Apellidos</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let empleado of empleados"
+              [ngStyle]="{ 'height': '100px'}">
+              <td>{{ empleado.idTipoDocumento }}</td>
+              <td>{{ empleado.documento }}</td>
+              <td>{{ empleado.nombres }}</td>
+              <td>{{ empleado.apellidos }}</td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+
+</div>

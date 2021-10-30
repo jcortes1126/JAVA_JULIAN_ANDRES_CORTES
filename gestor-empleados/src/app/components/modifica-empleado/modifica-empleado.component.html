@@ -1,0 +1,40 @@
+<h1>Modificar Empleado</h1>
+<div>
+  <p>
+    <label>Id Empleado:</label>
+    <input type="text" [(ngModel)]="empleado.idEmpleado"/>
+  </p>
+
+  <label>Tipo de Documento:</label>
+  <select id="listaTipodocumento" [(ngModel)]= "empleado.idTipoDocumento">
+    <option value="0">Selecciona una opción</option>
+    <option value={{itemTipodoc.idTipoDocumento}} *ngFor="let itemTipodoc of tiposDocumento">{{itemTipodoc.nombreTipoDocumento}}</option>
+  </select>
+  <p>
+    <label>Numero de Documento:</label>
+    <input type="text" [(ngModel)]="empleado.documento"/>
+  </p>
+  <p>
+    <label>Nombres:</label>
+    <input type="text" [(ngModel)]="empleado.nombres"/>
+  </p>
+  <p>
+    <label>Apellidos:</label>
+    <input type="text" [(ngModel)]="empleado.apellidos"/>
+  </p>
+  <label>Area a la que pertenece el empleado:</label>
+  <select [(ngModel)]= "areaSeleccionada.idArea" (change)="obtenerSubarea()">
+    <option value="0">Selecciona una opción</option>
+    <option  *ngFor="let item of areas" value={{item.idArea}}>{{item.nombreArea}}</option>
+  </select>
+
+  <p>
+    <label>Sub Area:</label>
+    <select id="listSubAreas" [(ngModel)]= "empleado.idSubarea">
+      <option value="0">Selecciona una opción</option>
+      <option value={{item2.idSubarea}} *ngFor="let item2 of subareas">{{item2.nombreSubarea}}</option>
+    </select>
+  </p>
+  <button (click)="actualizar()">Modificar</button>
+</div>
+

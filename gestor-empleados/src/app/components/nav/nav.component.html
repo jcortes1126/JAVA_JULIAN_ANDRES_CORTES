@@ -1,0 +1,35 @@
+<div class="show-mobile">
+  <div>
+    <button (click)="toggleMenu()">
+      Gestor
+    </button>
+
+  </div>
+  <div class="side-menu" [class.active]="activeMenu">
+    <button (click)="toggleMenu()">Close</button>
+    <ul>
+      <li><a [routerLink]="['registrar']">Registrar Empleado</a></li>
+      <li><a [routerLink]="['consultar']">Consultar Empleado</a></li>
+      <li><a [routerLink]="['modificar']">Modificar Empleado</a></li>
+      <li><a [routerLink]="['listar']">Listar Empleados</a></li>
+    </ul>
+  </div>
+</div>
+<div class="hide-mobile">
+  <div>
+    <nav>
+      <a class="logo" href="">
+        Inicio
+      </a>
+      <ul>
+        <li><a [routerLink]="['registrar']">Registrar Empleado</a></li>
+        <li><a [routerLink]="['consultar']">Consultar Empleado</a></li>
+        <li><a [routerLink]="['modificar']">Modificar Empleado</a></li>
+        <li><a [routerLink]="['listar']">Listar Empleados</a></li>
+      </ul>
+    </nav>
+    <div class="info">
+      <div class="account">Gestor de Empleados</div>
+    </div>
+  </div>
+</div>
